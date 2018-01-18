@@ -5881,6 +5881,7 @@ corrupt:
 		During re-init we have already freed ibuf entries. */
 		if (uncompressed
 		    && !Compression::is_compressed_page(frame)
+		    && !recv_recovery_is_on()
 		    && !recv_no_ibuf_operations
 		    && !Tablespace::is_undo_tablespace(bpage->id.space())
 		    && bpage->id.space() != srv_tmp_space.space_id()
